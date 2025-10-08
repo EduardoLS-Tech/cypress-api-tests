@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "open": "cypress open",
-    "test": "cypress run --reporter mochawesome --reporter-options reportDir=reports,overwrite=false,html=false,json=true",
-    "report:merge": "npx mochawesome-merge reports/*.json > reports/report.json || true",
-    "report:generate": "npx marge reports/report.json -f report -o reports || true"
+    "test": "cypress run --reporter mochawesome --reporter-options reportDir=reports,overwrite=false,html=false,json=true && npm run report:merge && npm run report:generate",
+    "report:merge": "npx mochawesome-merge reports/*.json > reports/report.json",
+    "report:generate": "npx marge reports/report.json -f report -o reports"
   },
   "devDependencies": {
     "cypress": "^13.13.0",
